@@ -66,3 +66,7 @@ group :test do
 end
 
 gem "dotenv-rails", "~> 3.1", groups: [:development, :test]
+
+gem "inertia_rails", "~> 3.11"
+
+gem "vite_rails", "~> 3.0"
