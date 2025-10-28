@@ -147,7 +147,7 @@ Sinta-se em casa 🧠💻
 ## 🧑‍💻 Autor
 
 **Victor Henrique Costa**
-💼 [LinkedIn]([https://linkedin.com/in/seu-perfil](https://www.linkedin.com/in/victorcostahs/))
+💼 [LinkedIn]([https://linkedin.com/in/seu-perfil](https://www.linkedin.com/in/victorcostahs/])
 
 ---
 
