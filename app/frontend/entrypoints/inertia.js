@@ -10,7 +10,7 @@ createInertiaApp({
     let page = pages[`../pages/${name}.jsx`]
 
     // Se a página NÃO tiver um layout próprio, aplica o Layout padrão
-    page.default.layout = page.default.layout || ((page) => <Layout children={page} />)
+    page.default.layout = page.default.layout || (() => createElement(Layout, { children: page }))
 
     return page
   },
