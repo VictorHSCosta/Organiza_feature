@@ -16,7 +16,7 @@ Um **template Rails moderno e completo**, configurado com tudo que você precisa
 Clone o template e instale as dependências:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-template-rails.git my_app
+git clone git@github.com:VictorHSCosta/Template_rails_inertia.git
 cd my_app
 bundle install
 pnpm install
