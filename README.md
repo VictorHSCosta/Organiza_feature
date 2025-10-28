@@ -146,9 +146,8 @@ Sinta-se em casa 🧠💻
 
 ## 🧑‍💻 Autor
 
-**Seu Nome Aqui**
-💼 [LinkedIn](https://linkedin.com/in/seu-perfil)
-💻 [GitHub](https://github.com/seu-usuario)
+**Victor Henrique Costa**
+💼 [LinkedIn]([https://linkedin.com/in/seu-perfil](https://www.linkedin.com/in/victorcostahs/))
 
 ---
 
