@@ -1,26 +1,159 @@
-# README
+# 🚀 Rails Template — Postgres + Inertia + RSpec + FactoryBot + pnpm + Vite
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Um **template Rails moderno e completo**, configurado com tudo que você precisa pra começar um novo projeto rapidamente.
 
-Things you may want to cover:
+> 💡 Inclui:
+> ✅ Ruby on Rails + PostgreSQL
+> ✅ Inertia.js + React + Vite
+> ✅ RSpec + FactoryBot
+> ✅ RuboCop + pnpm + ESLint + Prettier
+> ✅ GitHub Actions CI/CD (RSpec, Rubocop, pnpm lint)
 
-* Ruby version
+---
 
-* System dependencies
+## 📦 Instalação
 
-* Configuration
+Clone o template e instale as dependências:
 
-* Database creation
+```bash
+git clone https://github.com/seu-usuario/seu-template-rails.git my_app
+cd my_app
+bundle install
+pnpm install
+bin/rails db:setup
+```
 
-* Database initialization
+---
 
-* How to run the test suite
+## ⚙️ Configurações principais
 
-* Services (job queues, cache servers, search engines, etc.)
+### 🧠 Ambiente
 
-* Deployment instructions
+* Ruby: use a versão definida em `.ruby-version`
+* Node: 20+
+* Banco de dados: PostgreSQL
 
-* ...
-# Organiza_feature
-# Organiza_feature
+Crie o arquivo `.env` (ou use `config/application.yml`):
+
+```bash
+PG_USERNAME=postgres
+PG_PASSWORD=sua_senha
+PG_HOST=127.0.0.1
+PG_PORT=5432
+```
+
+---
+
+### 🧩 Frontend (Vite + Inertia + React)
+
+Os arquivos do frontend ficam em:
+
+```
+app/frontend/
+├── entrypoints/inertia.js
+├── components/
+├── pages/
+└── styles/
+```
+
+Inicie o servidor Vite:
+
+```bash
+bin/vite dev
+```
+
+---
+
+### 🧪 Testes (RSpec)
+
+```bash
+bundle exec rspec
+```
+
+Adiciona suporte a **FactoryBot** e **DatabaseCleaner** prontos para uso.
+
+---
+
+### 🔍 Lint e formatação
+
+#### Ruby
+
+```bash
+bundle exec rubocop --parallel
+```
+
+#### JavaScript
+
+```bash
+pnpm lint
+pnpm lint:fix
+```
+
+#### Prettier
+
+```bash
+pnpm format
+```
+
+---
+
+### ⚡ CI/CD (GitHub Actions)
+
+Esse template vem com um workflow pronto: `.github/workflows/ci.yml`
+
+Ele roda automaticamente em cada push ou PR:
+
+* `bundle exec rubocop`
+* `bundle exec rspec`
+* `pnpm lint`
+
+---
+
+## 🧰 Estrutura resumida
+
+```
+app/
+  ├── controllers/
+  ├── frontend/
+  │   ├── entrypoints/inertia.js
+  │   ├── components/
+  │   ├── pages/
+  │   └── styles/
+  ├── models/
+  ├── views/
+  └── ...
+spec/
+  ├── models/
+  ├── requests/
+  ├── support/
+  └── factories/
+.github/
+  └── workflows/ci.yml
+```
+
+---
+
+## 💬 Sobre este template
+
+Este é meu **template pessoal de Rails moderno** — já vem com tudo que costumo usar nos meus projetos:
+
+> Rails + Postgres + RSpec + FactoryBot + Rubocop + pnpm + ESLint + Inertia.js (React)
+
+Pode usar à vontade pra criar seus próprios projetos, ajustar, forkar e melhorar.
+Sinta-se em casa 🧠💻
+
+---
+
+## 🧑‍💻 Autor
+
+**Seu Nome Aqui**
+💼 [LinkedIn](https://linkedin.com/in/seu-perfil)
+💻 [GitHub](https://github.com/seu-usuario)
+
+---
+
+## ⭐ Se curtir, deixe uma estrela no repositório :)
+
+Apoia demais quem compartilha conteúdo open source 💙
+
+---
