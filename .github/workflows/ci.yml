@@ -7,7 +7,25 @@ on:
     branches: [ main, master, develop ]
 
 jobs:
-  test:
+  rubocop:
+    name: RuboCop
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: RuboCop
+        run: bundle exec rubocop --parallel
+
+  rspec:
+    name: RSpec
     runs-on: ubuntu-latest
 
     services:
@@ -33,7 +51,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      # --- pnpm antes do Node ---
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Wait for Postgres
+        run: |
+          for i in `seq 1 30`; do
+            pg_isready -h localhost -p 5432 -U postgres && break
+            sleep 1
+          done
+
+      - name: DB prepare
+        run: bundle exec rails db:prepare
+
+      - name: RSpec
+        run: bundle exec rspec
+
+  pnpm_lint:
+    name: pnpm lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -48,31 +92,6 @@ jobs:
 
       - name: Install JS deps
         run: pnpm install --frozen-lockfile
-
-      # --- Ruby / Bundler ---
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: .ruby-version
-          bundler-cache: true
-
-      # --- Banco de dados ---
-      - name: Wait for Postgres
-        run: |
-          for i in `seq 1 30`; do
-            pg_isready -h localhost -p 5432 -U postgres && break
-            sleep 1
-          done
-
-      - name: DB prepare
-        run: bundle exec rails db:prepare
-
-      # --- Linters e testes ---
-      - name: RuboCop
-        run: bundle exec rubocop --parallel
-
-      - name: RSpec
-        run: bundle exec rspec
 
       - name: ESLint (pnpm lint)
         run: pnpm lint
